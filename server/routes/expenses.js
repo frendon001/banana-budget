@@ -1,5 +1,3 @@
-const Path = require('path-parser').default;
-const { URL } = require('url');
 const BananaBudget = require('../services/BananaBudget');
 
 module.exports = app => {
