@@ -9,3 +9,6 @@ require('./routes/expenses')(app);
 
 const PORT = process.env.PORT || 3030;
 app.listen(PORT);
+
+//for testing
+module.exports = app;
