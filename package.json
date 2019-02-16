@@ -1,0 +1,30 @@
+{
+  "name": "banana-budget",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Solving for bannan budget problem.",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
+    "nodemon": "^1.18.10",
+    "path-parser": "^4.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "test": "mocha --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/frendon001/banana-budget.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
