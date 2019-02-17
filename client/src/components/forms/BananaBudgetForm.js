@@ -27,7 +27,7 @@ const getBananaBudget = async (date, days, setSubmitting) => {
     let totalCost = "";
     totalCost = res.data.totalCost;
 
-    alert('Your total cost is: ' + totalCost);
+    alert('Your total cost is: $' + totalCost);
   } catch(error) {
     console.log(error);
   }
