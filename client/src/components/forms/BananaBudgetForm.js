@@ -1,7 +1,6 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 
 import InputFormikField from './InputFormikField';
 
@@ -13,42 +12,14 @@ const bananaBudgetFormSchema = Yup.object().shape({
     .required('Required')
 });
 
-
-
-function formatDate(dateString) {
-  const dateArr = dateString.split('-');
-  return dateArr[1] + '/' + dateArr[2] +'/' + dateArr[0];
-}
-
-const getBananaBudget = async (date, days, setSubmitting) => {
-  try {
-    const res = await axios.get(`http://localhost:3030/api/bananaBudget/?startDate=${formatDate(date)}&numberOfDays=${days}`);
-    console.log(res);
-    let totalCost = "";
-    totalCost = res.data.totalCost;
-
-    alert('Your total cost is: $' + totalCost);
-  } catch(error) {
-    console.log(error);
-  }
-  
-
-};
-
-
-
-const BananaBudgetForm = () => {
+const BananaBudgetForm = (props) => {
   return (
     <Formik
       initialValues={{ budgetDate: '', budgetNumberOfDays: '' }}
       validationSchema={bananaBudgetFormSchema}
       onSubmit={(values, { setSubmitting }) => {
-        getBananaBudget(values.budgetDate, values.budgetNumberOfDays);
+        props.handleFormSubmit(values.budgetDate, values.budgetNumberOfDays);
         setSubmitting(false);
-        // setTimeout(() => {
-        //   alert(JSON.stringify(values, null, 2));
-        //   setSubmitting(false);
-        // }, 400);
       }}
     >
       {({ isSubmitting }) => (

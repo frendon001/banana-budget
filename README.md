@@ -25,9 +25,14 @@ yarn install
 npm run dev
 ```
 
-##
+## Loaded Application
 
 ![](images/bananaBudget.jpg)
 
-## 
+## Testing
+To run API Tests, close any running processes and then run the following command:
+```
+npm test
+```
+
 
