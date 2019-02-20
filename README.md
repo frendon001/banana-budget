@@ -2,6 +2,7 @@
 
 A tool used to calculate "Bob's Banana Budget".
 
+### [Live Demo Here](https://banana-budget-fr.herokuapp.com/)
 
 ## Installation
 
@@ -29,10 +30,28 @@ npm run dev
 
 ![](images/bananaBudget.jpg)
 
+## Technologies Used
+
+### Front-End
+- React
+- Formik
+- Axios
+- Semantic UI
+
+### Back End
+- Node
+- Express
+- Mocha
+- Chai
+
+
 ## Testing
 To run API Tests, close any running processes and then run the following command:
 ```
 npm test
 ```
 
+
+# Authors
+- Fausto Rendon (https://github.com/frendon001)
 
