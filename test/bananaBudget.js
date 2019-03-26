@@ -118,7 +118,7 @@ describe('Banana Budget', () => {
           res.body.should.have.property('totalCost').eql('0.25');
           done();
         });
-    });    
+    });
     it('it should  GET totalCost of 1.10 for weekday startDate=02/20/2019&numberOfDays=8', done => {
       chai
         .request(server)
@@ -130,7 +130,7 @@ describe('Banana Budget', () => {
           res.body.should.have.property('totalCost').eql('1.10');
           done();
         });
-    });  
+    });
     it('it should  GET totalCost of 1.50 for startDate=02/20/2019&numberOfDays=15', done => {
       chai
         .request(server)
@@ -142,7 +142,7 @@ describe('Banana Budget', () => {
           res.body.should.have.property('totalCost').eql('1.50');
           done();
         });
-    });  
+    });
     it('it should  GET totalCost of 2.20 for startDate=02/20/2019&numberOfDays=25', done => {
       chai
         .request(server)
@@ -154,7 +154,7 @@ describe('Banana Budget', () => {
           res.body.should.have.property('totalCost').eql('2.20');
           done();
         });
-    });  
+    });
     it('it should  GET totalCost of 4.05 for startDate=02/20/2019&numberOfDays=40', done => {
       chai
         .request(server)
@@ -166,7 +166,7 @@ describe('Banana Budget', () => {
           res.body.should.have.property('totalCost').eql('4.05');
           done();
         });
-    });  
+    });
     it('it should  GET totalCost of 4.60 for startDate=02/20/2019&numberOfDays=50', done => {
       chai
         .request(server)
@@ -178,9 +178,6 @@ describe('Banana Budget', () => {
           res.body.should.have.property('totalCost').eql('4.60');
           done();
         });
-    });  
-
-
-
+    });
   });
 });

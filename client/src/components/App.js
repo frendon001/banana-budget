@@ -26,16 +26,19 @@ class App extends Component {
         this.setState({
           totalCost: res.data.totalCost
         });
+        return res.data.totalCost;
       } else {
         this.setState({
           totalCost: ''
         });
+        return null;
       }
     } catch(error) {
       console.log(error);
       this.setState({
         totalCost: ''
       });
+      return null;
     }
   };
 
