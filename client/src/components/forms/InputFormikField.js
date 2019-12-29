@@ -1,8 +1,8 @@
-import React from 'react';
-import { Field, ErrorMessage } from 'formik';
+import React from "react";
+import { Field, ErrorMessage } from "formik";
 
 const InputFormikField = props => {
-  const { inputName, label, type='text' } = props;
+  const { inputName, label, type = "text" } = props;
 
   return (
     <div className="field">

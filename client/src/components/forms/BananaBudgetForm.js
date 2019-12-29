@@ -1,20 +1,20 @@
-import React from 'react';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import React from "react";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 
-import InputFormikField from './InputFormikField';
+import InputFormikField from "./InputFormikField";
 
 const bananaBudgetFormSchema = Yup.object().shape({
-  budgetDate: Yup.date().required('Required'),
+  budgetDate: Yup.date().required("Required"),
   budgetNumberOfDays: Yup.number()
-    .min(1, 'Enter a value greater than 0.')
-    .required('Required'),
+    .min(1, "Enter a value greater than 0.")
+    .required("Required")
 });
 
 const BananaBudgetForm = props => {
   return (
     <Formik
-      initialValues={{ budgetDate: '', budgetNumberOfDays: '' }}
+      initialValues={{ budgetDate: "", budgetNumberOfDays: "" }}
       validationSchema={bananaBudgetFormSchema}
       onSubmit={async (values, { setSubmitting }) => {
         try {
