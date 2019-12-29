@@ -1,4 +1,4 @@
-const moment = require("moment");
+const moment = require('moment');
 
 class BananaBudget {
   constructor({ startDate, numberOfDays }) {
@@ -13,7 +13,7 @@ class BananaBudget {
     if (!this.startDate || !this.numberOfDays) {
       //Missing parameters
       this.errorMessage = {
-        error: "Please enter a Start Date and/or Number of Days."
+        error: 'Please enter a Start Date and/or Number of Days.',
       };
       return false;
     }
@@ -31,10 +31,10 @@ class BananaBudget {
     //Set error message for invalid date
     if (
       !validDate.test(this.startDate) ||
-      !moment(this.startDate, "MM/DD/YYYY").isValid()
+      !moment(this.startDate, 'MM/DD/YYYY').isValid()
     ) {
       this.errorMessage = {
-        error: "Please enter a valid Date in MM/DD/YYYY format."
+        error: 'Please enter a valid Date in MM/DD/YYYY format.',
       };
       return false;
     }
@@ -48,7 +48,7 @@ class BananaBudget {
     //Set error message for invalid number of days
     if (!validNumberOfDays.test(this.numberOfDays)) {
       this.errorMessage = {
-        error: "Please enter a valid number of days."
+        error: 'Please enter a valid number of days.',
       };
       return false;
     } else {
@@ -56,7 +56,7 @@ class BananaBudget {
       this.numberOfDays = parseInt(this.numberOfDays, 10);
       if (this.numberOfDays === 0) {
         this.errorMessage = {
-          error: "Please enter a number of days greater than zero."
+          error: 'Please enter a number of days greater than zero.',
         };
         return false;
       }
@@ -89,7 +89,7 @@ class BananaBudget {
   }
 
   totalBananaExpenses() {
-    const currentDate = moment(this.startDate, "MM/DD/YYYY");
+    const currentDate = moment(this.startDate, 'MM/DD/YYYY');
     let daysLeft = this.numberOfDays;
     let dayOfWeek;
     let dayofMonth;
@@ -102,7 +102,7 @@ class BananaBudget {
       if (this.isWeekday(dayOfWeek)) {
         totalCost += this.bananaPriceByDayInCents(dayofMonth);
       }
-      currentDate.add(1, "days");
+      currentDate.add(1, 'days');
       daysLeft--;
     }
     //Convert totalCost to dollar value

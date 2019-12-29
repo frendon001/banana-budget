@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
 const totalCostStyle = {
-  margin: "25px 0 25px 0"
+  margin: '25px 0 25px 0',
 };
 
 const totalCostValStyle = {
-  color: "palevioletred",
+  color: 'palevioletred',
   textShadow:
-    "-1px 0 #aaacaf38, 0 1px #aaacaf38, 1px 0 #aaacaf38, 0 -1px #aaacaf38"
+    '-1px 0 #aaacaf38, 0 1px #aaacaf38, 1px 0 #aaacaf38, 0 -1px #aaacaf38',
 };
 
 const TotalCostDisplay = props => {
