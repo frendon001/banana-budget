@@ -20,7 +20,7 @@ const BananaBudgetForm = props => {
         try {
           await props.handleFormSubmit(
             values.budgetDate,
-            values.budgetNumberOfDays
+            values.budgetNumberOfDays,
           );
           setSubmitting(false);
         } catch (error) {

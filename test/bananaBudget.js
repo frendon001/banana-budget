@@ -4,8 +4,7 @@ process.env.NODE_ENV = 'test';
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../server');
-const should = chai.should();
-
+chai.should();
 chai.use(chaiHttp);
 
 describe('Banana Budget', () => {
@@ -59,7 +58,7 @@ describe('Banana Budget', () => {
     });
 
     //Validate results with valid parameters
-    it('it should  GET totalCost of 0.05 for weekday startDate=03/07/2019&numberOfDays=1', done => {
+    it('it should GET totalCost of 0.05 for weekday startDate=03/07/2019&numberOfDays=1', done => {
       chai
         .request(server)
         .get('/api/bananaBudget/?startDate=03/07/2019&numberOfDays=1')
@@ -71,7 +70,7 @@ describe('Banana Budget', () => {
           done();
         });
     });
-    it('it should  GET totalCost of 0.10 for weekday startDate=03/14/2019&numberOfDays=1', done => {
+    it('it should GET totalCost of 0.10 for weekday startDate=03/14/2019&numberOfDays=1', done => {
       chai
         .request(server)
         .get('/api/bananaBudget/?startDate=03/14/2019&numberOfDays=1')
@@ -83,7 +82,7 @@ describe('Banana Budget', () => {
           done();
         });
     });
-    it('it should  GET totalCost of 0.15 for weekday startDate=03/21/2019&numberOfDays=1', done => {
+    it('it should GET totalCost of 0.15 for weekday startDate=03/21/2019&numberOfDays=1', done => {
       chai
         .request(server)
         .get('/api/bananaBudget/?startDate=03/21/2019&numberOfDays=1')
@@ -95,7 +94,7 @@ describe('Banana Budget', () => {
           done();
         });
     });
-    it('it should  GET totalCost of 0.20 for weekday startDate=03/28/2019&numberOfDays=1', done => {
+    it('it should GET totalCost of 0.20 for weekday startDate=03/28/2019&numberOfDays=1', done => {
       chai
         .request(server)
         .get('/api/bananaBudget/?startDate=03/28/2019&numberOfDays=1')
@@ -107,7 +106,7 @@ describe('Banana Budget', () => {
           done();
         });
     });
-    it('it should  GET totalCost of 0.25 for weekday startDate=03/29/2019&numberOfDays=1', done => {
+    it('it should GET totalCost of 0.25 for weekday startDate=03/29/2019&numberOfDays=1', done => {
       chai
         .request(server)
         .get('/api/bananaBudget/?startDate=03/29/2019&numberOfDays=1')
@@ -119,7 +118,7 @@ describe('Banana Budget', () => {
           done();
         });
     });
-    it('it should  GET totalCost of 1.10 for weekday startDate=02/20/2019&numberOfDays=8', done => {
+    it('it should GET totalCost of 1.10 for weekday startDate=02/20/2019&numberOfDays=8', done => {
       chai
         .request(server)
         .get('/api/bananaBudget/?startDate=02/20/2019&numberOfDays=8')
@@ -131,7 +130,7 @@ describe('Banana Budget', () => {
           done();
         });
     });
-    it('it should  GET totalCost of 1.50 for startDate=02/20/2019&numberOfDays=15', done => {
+    it('it should GET totalCost of 1.50 for startDate=02/20/2019&numberOfDays=15', done => {
       chai
         .request(server)
         .get('/api/bananaBudget/?startDate=02/20/2019&numberOfDays=15')
@@ -143,7 +142,7 @@ describe('Banana Budget', () => {
           done();
         });
     });
-    it('it should  GET totalCost of 2.20 for startDate=02/20/2019&numberOfDays=25', done => {
+    it('it should GET totalCost of 2.20 for startDate=02/20/2019&numberOfDays=25', done => {
       chai
         .request(server)
         .get('/api/bananaBudget/?startDate=02/20/2019&numberOfDays=25')
@@ -155,7 +154,7 @@ describe('Banana Budget', () => {
           done();
         });
     });
-    it('it should  GET totalCost of 4.05 for startDate=02/20/2019&numberOfDays=40', done => {
+    it('it should GET totalCost of 4.05 for startDate=02/20/2019&numberOfDays=40', done => {
       chai
         .request(server)
         .get('/api/bananaBudget/?startDate=02/20/2019&numberOfDays=40')
@@ -167,7 +166,7 @@ describe('Banana Budget', () => {
           done();
         });
     });
-    it('it should  GET totalCost of 4.60 for startDate=02/20/2019&numberOfDays=50', done => {
+    it('it should GET totalCost of 4.60 for startDate=02/20/2019&numberOfDays=50', done => {
       chai
         .request(server)
         .get('/api/bananaBudget/?startDate=02/20/2019&numberOfDays=50')

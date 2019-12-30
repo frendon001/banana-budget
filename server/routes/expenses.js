@@ -5,13 +5,12 @@ module.exports = app => {
   app.get('/api/bananaBudget', (req, res) => {
     const budget = new BananaBudget(req.query);
     //validate request and send response
-    if(!budget.showHasValidParams()){
+    if (!budget.showHasValidParams()) {
       res.status(400).send(budget.showErrorMessage());
     } else {
       res.status(200).send({
-        totalCost: budget.totalBananaExpenses()
+        totalCost: budget.totalBananaExpenses(),
       });
     }
   });
-
 };
