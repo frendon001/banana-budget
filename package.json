@@ -13,6 +13,9 @@
     "path-parser": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "eslint": "^6.8.0",
@@ -22,8 +25,8 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
-    "start": "node server/index.js",
-    "server": "nodemon server/index.js",
+    "start": "npm run build && node dist/index.js",
+    "server": "npm run validate && nodemon dist/index.js",
     "client": "npm run start --prefix client",
     "test": "mocha --exit",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
@@ -32,7 +35,8 @@
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
-    "validate": "npm run check-format && npm run lint"
+    "validate": "npm run check-format && npm run lint && npm run build",
+    "build": "babel server --extensions .js,.ts,.tsx --out-dir dist"
   },
   "repository": {
     "type": "git",
