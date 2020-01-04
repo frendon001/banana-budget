@@ -1,3 +1,4 @@
+export {};
 const BananaBudget = require('../services/BananaBudget');
 
 module.exports = app => {
