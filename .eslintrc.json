@@ -19,7 +19,7 @@
     "sourceType": "module"
   },
   "plugins": [],
-  "ignorePatterns": ["client/"],
+  "ignorePatterns": ["client/", "dist/"],
   "rules": {
     "strict": ["error", "never"]
   }

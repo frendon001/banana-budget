@@ -1,6 +1,12 @@
-const moment = require('moment');
+import moment from 'moment';
 
-class BananaBudget {
+export class BananaBudget {
+  startDate: string;
+  numberOfDays: string;
+  days: number;
+  errorMessage: object;
+  hasValidParams: boolean;
+
   constructor({ startDate, numberOfDays }) {
     this.startDate = startDate;
     this.numberOfDays = numberOfDays;
@@ -53,8 +59,8 @@ class BananaBudget {
       return false;
     } else {
       //Convert valid number to integer and check for zero value
-      this.numberOfDays = parseInt(this.numberOfDays, 10);
-      if (this.numberOfDays === 0) {
+      this.days = parseInt(this.numberOfDays, 10);
+      if (this.days === 0) {
         this.errorMessage = {
           error: 'Please enter a number of days greater than zero.',
         };
@@ -90,7 +96,7 @@ class BananaBudget {
 
   totalBananaExpenses() {
     const currentDate = moment(this.startDate, 'MM/DD/YYYY');
-    let daysLeft = this.numberOfDays;
+    let daysLeft = this.days;
     let dayOfWeek;
     let dayofMonth;
     let totalCost = 0;
@@ -118,4 +124,3 @@ class BananaBudget {
   }
 }
 
-module.exports = BananaBudget;
