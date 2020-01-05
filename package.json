@@ -5,6 +5,7 @@
   "description": "Solving for bannan budget problem.",
   "main": "index.js",
   "dependencies": {
+    "@types/express": "^4.17.2",
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
     "express": "^4.16.4",

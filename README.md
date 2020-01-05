@@ -47,8 +47,24 @@ npm run dev
 
 ## Testing
 To run API Tests, close any running processes and then run the following command:
+
 ```
 npm test
+```
+
+## Troubleshooting
+
+If validation script fails `npm run validate`.
+- Try running the formatting script to automatically fix formatting issues: `npm run format`
+
+If there are issues with VSCode not respecting the tsconfig.json
+- Try overriding the default version of Typescript in VSCode by adding the following setting.json configuration on your workspace
+- This will allow VSCode to use the Typescript version specified on the project's package.json instead of the default VSCode version
+
+``` JSON
+{
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
 ```
 
 

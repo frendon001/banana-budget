@@ -1,5 +1,4 @@
-export {};
-const BananaBudget = require('../services/BananaBudget');
+import { BananaBudget } from '../services/BananaBudget'
 
 module.exports = app => {
   //Route to receive banana budget calculation request

@@ -1,6 +1,6 @@
-const moment = require('moment');
+import moment from 'moment';
 
-class BananaBudget {
+export class BananaBudget {
   startDate: string;
   numberOfDays: string;
   days: number;
@@ -124,4 +124,3 @@ class BananaBudget {
   }
 }
 
-module.exports = BananaBudget;
