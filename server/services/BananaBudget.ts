@@ -15,7 +15,7 @@ export class BananaBudget {
   }
 
   validateParams(): boolean {
-    //Check startDate and numberofDays are present
+    //Check startDate and numberOfDays are present
     if (!this.startDate || !this.numberOfDays) {
       //Missing parameters
       this.errorMessage = {
@@ -97,16 +97,16 @@ export class BananaBudget {
   totalBananaExpenses(): string {
     const currentDate = moment(this.startDate, 'MM/DD/YYYY');
     let daysLeft = this.days;
-    let dayOfWeek;
-    let dayofMonth;
+    let dayOfWeek: number;
+    let dayOfMonth: number;
     let totalCost = 0;
 
     while (daysLeft > 0) {
       dayOfWeek = currentDate.day();
-      dayofMonth = currentDate.date();
+      dayOfMonth = currentDate.date();
       //Increase total price if weekday
       if (this.isWeekday(dayOfWeek)) {
-        totalCost += this.bananaPriceByDayInCents(dayofMonth);
+        totalCost += this.bananaPriceByDayInCents(dayOfMonth);
       }
       currentDate.add(1, 'days');
       daysLeft--;
@@ -123,4 +123,3 @@ export class BananaBudget {
     return this.hasValidParams;
   }
 }
-
