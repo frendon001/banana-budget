@@ -1,6 +1,7 @@
 import { BananaBudget } from '../services/BananaBudget'
+import { Express } from 'express';
 
-module.exports = app => {
+export default (app: Express): void => {
   //Route to receive banana budget calculation request
   app.get('/api/bananaBudget', (req, res) => {
     const budget = new BananaBudget(req.query);

@@ -14,7 +14,7 @@ export class BananaBudget {
     this.hasValidParams = this.validateParams();
   }
 
-  validateParams() {
+  validateParams(): boolean {
     //Check startDate and numberofDays are present
     if (!this.startDate || !this.numberOfDays) {
       //Missing parameters
@@ -32,7 +32,7 @@ export class BananaBudget {
     return true;
   }
 
-  validateDate() {
+  validateDate(): boolean {
     const validDate = /^((0|1)\d{1})\/(((0|1|2)\d{1})|[3](0|1))\/((19|20)\d{2})$/;
     //Set error message for invalid date
     if (
@@ -49,7 +49,7 @@ export class BananaBudget {
     return true;
   }
 
-  validateDays() {
+  validateDays(): boolean {
     const validNumberOfDays = /^\d+$/;
     //Set error message for invalid number of days
     if (!validNumberOfDays.test(this.numberOfDays)) {
@@ -71,7 +71,7 @@ export class BananaBudget {
     return true;
   }
 
-  bananaPriceByDayInCents(day) {
+  bananaPriceByDayInCents(day: number): number {
     // price in cents based day of month
     if (day <= 7) {
       return 5;
@@ -86,7 +86,7 @@ export class BananaBudget {
     }
   }
 
-  isWeekday(weekdayVal) {
+  isWeekday(weekdayVal: number): boolean {
     if (weekdayVal > 0 && weekdayVal < 6) {
       return true;
     } else {
@@ -94,7 +94,7 @@ export class BananaBudget {
     }
   }
 
-  totalBananaExpenses() {
+  totalBananaExpenses(): string {
     const currentDate = moment(this.startDate, 'MM/DD/YYYY');
     let daysLeft = this.days;
     let dayOfWeek;
@@ -116,10 +116,10 @@ export class BananaBudget {
     return totalCost.toFixed(2);
   }
 
-  showErrorMessage() {
+  showErrorMessage(): object {
     return this.errorMessage;
   }
-  showHasValidParams() {
+  showHasValidParams(): boolean {
     return this.hasValidParams;
   }
 }

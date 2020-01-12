@@ -1,5 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import path from 'path';
+import expenses from './routes/expenses';
 
 const app = express();
 
@@ -14,13 +16,12 @@ app.use((_req, res, next) => {
   next();
 });
 
-require('./routes/expenses')(app);
+expenses(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve production assets
   app.use(express.static('client/build'));
 
-  const path = require('path');
   app.get('*', (_req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
