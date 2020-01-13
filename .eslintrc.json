@@ -22,5 +22,20 @@
   "ignorePatterns": ["client/", "dist/"],
   "rules": {
     "strict": ["error", "never"]
-  }
+  },
+  "overrides": [
+    {
+      "files": "**/*.+(ts|tsx)", // this override enables ESLint Support for TypeScript Files
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "plugins": ["@typescript-eslint/eslint-plugin"], // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended", // Disables some rules that are not necessary when using TypeScript
+        "plugin:@typescript-eslint/recommended", // Set of rules which are recommended for all projects by the ESLint Team
+        "eslint-config-prettier/@typescript-eslint" // Override/Disable the rules from "typescript-eslint" that are not necessary because prettier is handling them
+      ]
+    }
+  ]
 }
