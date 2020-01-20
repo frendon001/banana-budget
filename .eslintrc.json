@@ -19,7 +19,7 @@
     "sourceType": "module"
   },
   "plugins": [],
-  "ignorePatterns": ["client/", "dist/"],
+  "ignorePatterns": ["client/", "dist/", "app/", "build"],
   "rules": {
     "strict": ["error", "never"]
   },
@@ -36,6 +36,11 @@
         "plugin:@typescript-eslint/recommended", // Set of rules which are recommended for all projects by the ESLint Team
         "eslint-config-prettier/@typescript-eslint" // Override/Disable the rules from "typescript-eslint" that are not necessary because prettier is handling them
       ]
+    },
+    {
+      "files": ["**/src/**"],
+      "settings": { "import/resolver": "webpack" },
+      "extends": ["eslint:recommended", "plugin:react/recommended"]
     }
   ]
 }
