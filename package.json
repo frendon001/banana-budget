@@ -51,19 +51,19 @@
   "scripts": {
     "start": "node build/index.js",
     "server": "npm run validate && nodemon build/index.js",
-    "client": "npm run start --prefix client",
     "test": "mocha --exit",
-    "dev-test": "webpack-dev-server --mode=development",
-    "build-test": "webpack --mode=production",
+    "client": "webpack-dev-server --mode=development",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run build && npm install --prefix client && npm run build --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=true npm run build",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
     "check-types": "tsc",
-    "validate": "npm-run-all --parallel check-types check-format lint build",
-    "build": "babel server --extensions .js,.ts,.tsx --out-dir build"
+    "validate": "npm-run-all --parallel check-types check-format lint build:server",
+    "build:client": "webpack --mode=production",
+    "build:server": "babel server --extensions .js,.ts,.tsx --out-dir build",
+    "build": "npm run build:server && npm run build:client"
   },
   "lint-staged": {
     "*.+(js|ts|tsx)": [

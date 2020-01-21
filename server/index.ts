@@ -18,14 +18,14 @@ app.use((_req, res, next) => {
 
 expenses(app);
 
-// if (process.env.NODE_ENV === 'production') {
-// Serve production assets
-app.use(express.static('build'));
+if (process.env.NODE_ENV === 'production') {
+  // Serve production assets
+  app.use(express.static('build'));
 
-app.get('*', (_req, res) => {
-  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-});
-// }
+  app.get('*', (_req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 3030;
 app.listen(PORT);
