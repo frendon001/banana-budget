@@ -12,7 +12,10 @@ const headerStyle = {
 };
 
 class App extends Component {
-  state = { totalCost: '' };
+  constructor(props) {
+    super(props);
+    this.state = { totalCost: '' };
+  }
 
   formatDate(dateString) {
     const dateArr = dateString.split('-');
