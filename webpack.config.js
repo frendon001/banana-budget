@@ -9,7 +9,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Banana Budget App',
       template: './app/public/index.html',
+      favicon: './app/public/favicon.ico',
+      appMountId: 'root',
     }),
   ],
   resolve: {
