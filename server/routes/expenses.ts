@@ -1,4 +1,4 @@
-import { BananaBudget } from '../services/BananaBudget'
+import { BananaBudget } from '../services/BananaBudget';
 import { Express } from 'express';
 
 export default (app: Express): void => {

@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './app/index.js',
+  entry: './app/index.jsx',
   output: {
     path: path.resolve('build'),
     filename: 'bundle.js',
@@ -36,9 +36,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx|tsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader',
+        resolve: {
+          extensions: ['.js', '.jsx'],
+        },
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg)$/,

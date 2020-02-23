@@ -15,6 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { totalCost: '' };
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   formatDate(dateString) {
@@ -22,7 +23,7 @@ class App extends Component {
     return dateArr[1] + '/' + dateArr[2] + '/' + dateArr[0];
   }
 
-  onFormSubmit = async (date, days, setSubmitting) => {
+  async onFormSubmit(date, days) {
     try {
       const res = await axios.get(
         `/api/bananaBudget/?startDate=${this.formatDate(
@@ -48,7 +49,7 @@ class App extends Component {
       });
       return null;
     }
-  };
+  }
 
   render() {
     return (
