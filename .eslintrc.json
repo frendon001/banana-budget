@@ -7,10 +7,6 @@
     "mocha": true
   },
   "extends": ["eslint:recommended", "eslint-config-prettier"],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -19,7 +15,7 @@
     "sourceType": "module"
   },
   "plugins": [],
-  "ignorePatterns": ["client/", "dist/", "app/", "build"],
+  "ignorePatterns": ["client/", "dist/", "build"],
   "rules": {
     "strict": ["error", "never"]
   },
@@ -38,9 +34,11 @@
       ]
     },
     {
-      "files": ["**/src/**"],
-      "settings": { "import/resolver": "webpack" },
-      "extends": ["eslint:recommended", "plugin:react/recommended"]
+      "files": ["**/app/**"],
+      "extends": ["eslint:recommended", "plugin:react/recommended"],
+      "rules": {
+        "react/prop-types": "warn"
+      }
     }
   ]
 }
