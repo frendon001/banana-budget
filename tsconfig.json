@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
-    "noEmit": true,
+    "noEmit": false,
     "baseUrl": "./src",
     "module": "ES6",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "esModuleInterop": true
   }
 }

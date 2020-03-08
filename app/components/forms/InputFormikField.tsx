@@ -1,7 +1,13 @@
 import React from 'react';
 import { Field, ErrorMessage } from 'formik';
 
-const InputFormikField = props => {
+interface InputFormikFieldProps {
+  inputName: string;
+  label: string;
+  type: string;
+}
+
+const InputFormikField = (props: InputFormikFieldProps): JSX.Element => {
   const { inputName, label, type = 'text' } = props;
 
   return (
