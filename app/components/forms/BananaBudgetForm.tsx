@@ -11,12 +11,14 @@ const bananaBudgetFormSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const BananaBudgetForm = props => {
+const BananaBudgetForm = (props: {
+  handleFormSubmit: Function;
+}): JSX.Element => {
   return (
     <Formik
       initialValues={{ budgetDate: '', budgetNumberOfDays: '' }}
       validationSchema={bananaBudgetFormSchema}
-      onSubmit={async (values, { setSubmitting }) => {
+      onSubmit={async (values, { setSubmitting }): Promise<void> => {
         try {
           await props.handleFormSubmit(
             values.budgetDate,
@@ -28,7 +30,7 @@ const BananaBudgetForm = props => {
         }
       }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting }): JSX.Element => (
         <Form className="ui form error">
           <InputFormikField
             type="date"

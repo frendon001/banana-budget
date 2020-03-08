@@ -10,7 +10,9 @@ const totalCostValStyle = {
     '-1px 0 #aaacaf38, 0 1px #aaacaf38, 1px 0 #aaacaf38, 0 -1px #aaacaf38',
 };
 
-const TotalCostDisplay = props => {
+const TotalCostDisplay = (props: {
+  totalCost: React.ReactNode;
+}): JSX.Element => {
   return (
     <div className="ui centered grid" style={totalCostStyle}>
       <div className="ui padded segment">

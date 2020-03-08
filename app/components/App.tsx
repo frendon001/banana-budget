@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, CSSProperties } from 'react';
 import BananaBudgetForm from './forms/BananaBudgetForm';
 import TotalCostDisplay from './TotalCostDisplay';
 import axios from 'axios';
 
-const headerStyle = {
+const headerStyle: CSSProperties = {
   color: '#fbdd62',
   textAlign: 'center',
   margin: '25px 0 25px 0',
@@ -11,19 +11,25 @@ const headerStyle = {
     '-1px 0 #22242638, 0 1px #22242638, 1px 0 #22242638, 0 -1px #22242638',
 };
 
-class App extends Component {
+interface State {
+  totalCost: string;
+}
+
+class App extends Component<{}, State> {
   constructor(props) {
     super(props);
-    this.state = { totalCost: '' };
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
+  state: Readonly<State> = {
+    totalCost: '',
+  };
 
-  formatDate(dateString) {
+  formatDate(dateString: string): string {
     const dateArr = dateString.split('-');
     return dateArr[1] + '/' + dateArr[2] + '/' + dateArr[0];
   }
 
-  async onFormSubmit(date, days) {
+  onFormSubmit = async (date: string, days: number): Promise<string | null> => {
     try {
       const res = await axios.get(
         `/api/bananaBudget/?startDate=${this.formatDate(
@@ -49,9 +55,9 @@ class App extends Component {
       });
       return null;
     }
-  }
+  };
 
-  render() {
+  render(): JSX.Element {
     return (
       <div className="ui centered grid">
         <div className="ten wide mobile six wide tablet four wide computer column">
