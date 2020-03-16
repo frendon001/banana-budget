@@ -1,20 +1,13 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './app/index.tsx',
-  output: {
-    path: path.resolve('build'),
-    filename: 'bundle.js',
+  entry: {
+    main: './app/index.tsx',
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Banana Budget App',
-      template: './app/public/index.html',
-      favicon: './app/public/favicon.ico',
-      appMountId: 'root',
-    }),
-  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve('build'),
+  },
   resolve: {
     modules: ['node_modules', path.join(__dirname, 'app'), 'shared'],
     // Add `.ts` and `.tsx` as a resolvable extension.
@@ -37,14 +30,9 @@ module.exports = {
           },
         ],
       },
-      // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.(js|jsx)$/,
+        // Include ts, tsx, js, and jsx files.
+        test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
@@ -53,12 +41,5 @@ module.exports = {
         use: 'file-loader',
       },
     ],
-  },
-  devServer: {
-    proxy: {
-      '/api': 'http://localhost:3030',
-    },
-    contentBase: path.join(__dirname, './build'),
-    historyApiFallback: true,
   },
 };
