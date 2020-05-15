@@ -11,6 +11,14 @@ const headerStyle: CSSProperties = {
     '-1px 0 #22242638, 0 1px #22242638, 1px 0 #22242638, 0 -1px #22242638',
 };
 
+const promptStyle: CSSProperties = {
+  color: '#2f2b2b',
+  fontSize: '16px',
+};
+const boldStyle: CSSProperties = {
+  fontWeight: 'bold',
+};
+
 interface State {
   totalCost: string;
 }
@@ -59,19 +67,47 @@ class App extends Component<{}, State> {
 
   render(): JSX.Element {
     return (
-      <div className="ui centered grid">
-        <div className="ten wide mobile six wide tablet four wide computer column">
-          <h1 className="ui header" style={headerStyle}>
-            Banana Budget
-          </h1>
-          <div className="ui message">
-            <BananaBudgetForm handleFormSubmit={this.onFormSubmit} />
+      <div className="ui container">
+        <h1 className="ui header" style={headerStyle}>
+          Banana Budget
+        </h1>
+        <div className="ui centered grid">
+          <div
+            className="ten wide mobile ten wide tablet eight wide small screen six wide large screen column"
+            style={promptStyle}
+          >
+            <p>
+              Every day, Bob buys a banana from the same grocery store on his
+              way to work. At this grocery store, bananas are priced in a
+              dynamic, yet predictable way:
+            </p>
+            <ul className="ui list">
+              <li>The first 7 days of the month bananas cost $0.05</li>
+              <li>The second 7 days of the month, bananas cost $0.10</li>
+              <li>The third 7 days of the month, bananas cost $0.15</li>
+              <li>The fourth 7 days of the month, bananas cost $0.20</li>
+              <li>
+                Any remaining days of the month after that, bananas cost $0.25
+              </li>
+            </ul>
+            <br></br>
+            <p style={boldStyle}>
+              Use the following calculator to obtain Bob&apos;s total cost for
+              bannanas
+            </p>
           </div>
-          {this.state.totalCost ? (
-            <TotalCostDisplay totalCost={this.state.totalCost} />
-          ) : (
-            ''
-          )}
+        </div>
+        <div className="ui centered grid">
+          <div className="ten wide mobile eight wide tablet six wide computer column">
+            <div className="ui message">
+              <BananaBudgetForm handleFormSubmit={this.onFormSubmit} />
+            </div>
+            {this.state.totalCost ? (
+              <TotalCostDisplay totalCost={this.state.totalCost} />
+            ) : (
+              ''
+            )}
+          </div>
         </div>
       </div>
     );
