@@ -35,20 +35,24 @@ const BananaBudgetForm = (props: {
           <InputFormikField
             type="date"
             inputName="budgetDate"
-            label="Enter Date"
+            label="Start Date"
           />
           <InputFormikField
             type="number"
             inputName="budgetNumberOfDays"
-            label="Enter Number of Days"
+            label="Number of Days to Budget"
           />
-          <button
-            type="submit"
-            className="ui button primary"
-            disabled={isSubmitting}
-          >
-            Submit
-          </button>
+          <div className="ui grid">
+            <div className="right floated right aligned eight wide column">
+              <button
+                type="submit"
+                className="ui button primary"
+                disabled={isSubmitting}
+              >
+                Submit
+              </button>
+            </div>
+          </div>
         </Form>
       )}
     </Formik>
