@@ -40,7 +40,7 @@ const BananaBudgetForm = (props: {
           <InputFormikField
             type="number"
             inputName="budgetNumberOfDays"
-            label="Number of Days to Calculate Budget"
+            label="Number of Days to Budget"
           />
           <div className="ui grid">
             <div className="right floated right aligned eight wide column">

@@ -73,7 +73,7 @@ class App extends Component<{}, State> {
         </h1>
         <div className="ui centered grid">
           <div
-            className="ten wide mobile ten wide tablet eight wide small screen six wide large screen column"
+            className="twelve wide mobile ten wide tablet eight wide computer seven wide large screen column"
             style={promptStyle}
           >
             <p>
@@ -93,12 +93,12 @@ class App extends Component<{}, State> {
             <br></br>
             <p style={boldStyle}>
               Use the following calculator to obtain Bob&apos;s total cost for
-              bannanas
+              bananas
             </p>
           </div>
         </div>
         <div className="ui centered grid">
-          <div className="ten wide mobile eight wide tablet six wide computer column">
+          <div className="ten wide mobile eight wide tablet seven wide computer six wide large screen column">
             <div className="ui message">
               <BananaBudgetForm handleFormSubmit={this.onFormSubmit} />
             </div>
